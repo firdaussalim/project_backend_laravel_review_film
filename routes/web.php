@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CastController;
 use App\Http\Controllers\genreController;
 use App\Http\Controllers\filmController;
+use App\Http\Controllers\kritikController;
 
 Route::get('/',[HomeController::class, 'home']);
 Route::get('/register',[HomeController::class, 'register']);
@@ -52,7 +53,9 @@ Route::get('/genre/{id}/edit',[genreController::class, 'edit']);
 Route::put('/genre/{id}',[genreController::class, 'update']);
 
 Route::delete('/genre/{id}',[genreController::class, 'destroy']);
+Route::get('/genre/{id}',[genreController::class, 'show']);
 
+Route::post('/kritik/{film}', [KritikController::class, 'store'])->name('kritik.store');
 
 });
 

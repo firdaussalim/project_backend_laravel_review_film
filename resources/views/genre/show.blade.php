@@ -25,6 +25,7 @@ Genre Data
                 @auth
                 <td>
                     <form action="/genre/{{$item->id}}" method="POST">
+                        <a href='/genre/{{$item->id}}' class="btn btn-primary btn-sm">Detail</a>
                         <a href='/genre/{{$item->id}}/edit' class="btn btn-warning btn-sm">Edit</a>  
                         @csrf
                         @method('delete')

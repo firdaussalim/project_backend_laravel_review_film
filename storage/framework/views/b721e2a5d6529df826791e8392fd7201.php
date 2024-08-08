@@ -15,7 +15,8 @@ Database Film
         <div class="card" >
             <img src="<?php echo e(asset('/uploads/'.$item->poster)); ?>" class="card-img-top" alt="...">
             <div class="card-body">
-              <h2 class="card-title"><?php echo e($item->judul); ?></h2>
+              <h2><?php echo e($item->judul); ?></h2>
+              <p><span class="badge badge-info"><?php echo e($item->genre->nama); ?></span><p>
               <p class="card-text"></p>
               <a href="<?php echo e(url('/film/' . $item->id)); ?>" class="btn btn-primary btn-block">Details</a>
               <?php if(auth()->guard()->check()): ?>

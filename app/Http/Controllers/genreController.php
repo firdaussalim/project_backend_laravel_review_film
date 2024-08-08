@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use App\Models\genre;
 
 class genreController extends Controller
 {
@@ -78,6 +79,11 @@ class genreController extends Controller
     {
         DB::table('genre')->where('id', $id)->delete();
         return redirect('/genre');
+    }
+
+    public function show($id) {
+        $genre = genre::find($id);
+        return view('genre.detail', ['genre' => $genre]);
     }
 
 }

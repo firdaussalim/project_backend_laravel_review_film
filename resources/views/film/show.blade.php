@@ -15,7 +15,8 @@ Database Film
         <div class="card" >
             <img src="{{asset('/uploads/'.$item->poster)}}" class="card-img-top" alt="...">
             <div class="card-body">
-              <h2 class="card-title">{{$item->judul}}</h2>
+              <h2>{{$item->judul}}</h2>
+              <p><span class="badge badge-info">{{$item->genre->nama}}</span><p>
               <p class="card-text"></p>
               <a href="{{ url('/film/' . $item->id) }}" class="btn btn-primary btn-block">Details</a>
               @auth

@@ -25,6 +25,7 @@ Genre Data
                 <?php if(auth()->guard()->check()): ?>
                 <td>
                     <form action="/genre/<?php echo e($item->id); ?>" method="POST">
+                        <a href='/genre/<?php echo e($item->id); ?>' class="btn btn-primary btn-sm">Detail</a>
                         <a href='/genre/<?php echo e($item->id); ?>/edit' class="btn btn-warning btn-sm">Edit</a>  
                         <?php echo csrf_field(); ?>
                         <?php echo method_field('delete'); ?>
