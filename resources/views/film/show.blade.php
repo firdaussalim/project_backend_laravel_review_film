@@ -5,8 +5,9 @@ Database Film
 @endsection
 
 @section('content')
-
+@auth
 <a href="/film/create" class="btn btn-sm btn-primary mb-3">add new movie</a>
+@endauth
 
 <div class="row">
     @forelse ($film as $item)
@@ -17,6 +18,7 @@ Database Film
               <h2 class="card-title">{{$item->judul}}</h2>
               <p class="card-text"></p>
               <a href="{{ url('/film/' . $item->id) }}" class="btn btn-primary btn-block">Details</a>
+              @auth
               <div class="row my-2">  
                 <div class="col">
                     <a href="{{ url('/film/' . $item->id) . '/edit'}}" class="btn btn-info btn-block">Edit</a>
@@ -28,7 +30,8 @@ Database Film
                     <input value="Delete" type="submit" class="btn btn-danger btn-block">
                   </form>
                 </div>
-              </div>  
+              </div>
+              @endauth
             </div>
           </div>
     </div>    

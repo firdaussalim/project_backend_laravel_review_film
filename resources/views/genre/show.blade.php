@@ -5,8 +5,10 @@ Genre Data
 @endsection
 
 @section('content')
-
+@auth
 <a href="/genre/create" class="btn btn-sm btn-primary mb-3">add new cast</a>
+@endauth
+
 
 <table class="table">
     <thead>
@@ -20,6 +22,7 @@ Genre Data
             <tr>
                 <th scope="row">{{$key + 1}}</th>
                 <td>{{$item->nama}}</td>
+                @auth
                 <td>
                     <form action="/genre/{{$item->id}}" method="POST">
                         <a href='/genre/{{$item->id}}/edit' class="btn btn-warning btn-sm">Edit</a>  
@@ -28,6 +31,7 @@ Genre Data
                         <input type="submit" class="btn btn-danger btn-sm" value="Delete">
                     </form>
                 </td>
+                @endauth
             </tr>
         @empty
             <p>No Cast</p>

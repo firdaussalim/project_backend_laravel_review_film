@@ -13,6 +13,7 @@ Route::post('/welcome',[AuthController::class, 'submit']);
 Route::get('/data-table',[HomeController::class, 'dataTable']);
 Route::get('/table',[HomeController::class, 'table']);
 
+Route::middleware(['auth'])->group(function () {
 //CRUD function
 //Create data on Cast table
 //Route to form input new Cast table
@@ -52,8 +53,12 @@ Route::put('/genre/{id}',[genreController::class, 'update']);
 
 Route::delete('/genre/{id}',[genreController::class, 'destroy']);
 
-//CRUD film
+
+});
+
+Route::get('/genre', [genreController::class, 'index']);
 Route::resource('film', filmController::class);
+// Route::get('/film', [filmController::class, 'index']);
+// Route::get('/film/{id}', [filmController::class, 'show']);
 
-
-
+Auth::routes();
